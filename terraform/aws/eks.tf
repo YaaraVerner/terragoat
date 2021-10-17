@@ -26,7 +26,6 @@ resource aws_iam_role "iam_for_eks" {
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
-    yor_trace            = "de052596-21a0-43de-8153-469add277b18"
   }
 }
 
@@ -54,7 +53,6 @@ resource aws_vpc "eks_vpc" {
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
-    yor_trace            = "1600ca6c-72f6-45c0-a71d-88e117e51d6b"
   })
 }
 
