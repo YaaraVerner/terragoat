@@ -26,6 +26,7 @@ resource aws_iam_role "iam_for_eks" {
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
+    yor_trace            = "876334f2-ac6e-4e73-a8dd-1c1fb3110c42"
   }
 }
 
@@ -53,6 +54,8 @@ resource aws_vpc "eks_vpc" {
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
+    }, {
+    yor_trace = "cf27c92b-e31a-43a0-97e9-2f7a7d703d83"
   })
 }
 
@@ -81,6 +84,11 @@ resource aws_subnet "eks_subnet1" {
     "kubernetes.io/cluster/$$$${local.eks_name.value}" = "shared"
     "kubernetes.io/cluster/$$${local.eks_name.value}"  = "shared"
     "kubernetes.io/cluster/$${local.eks_name.value}"   = "shared"
+    }, {
+    "kubernetes.io/cluster/$$$$${local.eks_name.value}" = "shared"
+    "kubernetes.io/cluster/$$$${local.eks_name.value}"  = "shared"
+    "kubernetes.io/cluster/$$${local.eks_name.value}"   = "shared"
+    "kubernetes.io/cluster/$${local.eks_name.value}"    = "shared"
   })
 }
 
@@ -109,6 +117,11 @@ resource aws_subnet "eks_subnet2" {
     "kubernetes.io/cluster/$$$${local.eks_name.value}" = "shared"
     "kubernetes.io/cluster/$$${local.eks_name.value}"  = "shared"
     "kubernetes.io/cluster/$${local.eks_name.value}"   = "shared"
+    }, {
+    "kubernetes.io/cluster/$$$$${local.eks_name.value}" = "shared"
+    "kubernetes.io/cluster/$$$${local.eks_name.value}"  = "shared"
+    "kubernetes.io/cluster/$$${local.eks_name.value}"   = "shared"
+    "kubernetes.io/cluster/$${local.eks_name.value}"    = "shared"
   })
 }
 
