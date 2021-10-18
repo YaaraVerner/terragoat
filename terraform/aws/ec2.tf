@@ -46,7 +46,6 @@ resource "aws_ebs_volume" "web_host_storage" {
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
-    yor_trace            = "c5509daf-10f0-46af-9e03-41989212521d"
   })
 }
 
@@ -64,7 +63,6 @@ resource "aws_ebs_snapshot" "example_snapshot" {
     git_modifiers        = "nimrodkor"
     git_org              = "bridgecrewio"
     git_repo             = "terragoat"
-    yor_trace            = "c1008080-ec2f-4512-a0d0-2e9330aa58f0"
   })
 }
 
