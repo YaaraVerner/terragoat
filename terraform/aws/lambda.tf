@@ -22,8 +22,6 @@ EOF
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "bridgecrewio"
-    git_repo             = "terragoat"
     yor_trace            = "93cfa6f9-a257-40c3-b7dc-3c3686929734"
   }
 }
