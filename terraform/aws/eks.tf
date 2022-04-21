@@ -24,9 +24,10 @@ resource aws_iam_role "iam_for_eks" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "bridgecrewio"
+    git_org              = "YaaraVerner"
     git_repo             = "terragoat"
     yor_trace            = "876334f2-ac6e-4e73-a8dd-1c1fb3110c42"
+    test_tag             = "test"
   }
 }
 
@@ -52,10 +53,12 @@ resource aws_vpc "eks_vpc" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "bridgecrewio"
+    git_org              = "YaaraVerner"
     git_repo             = "terragoat"
     }, {
     yor_trace = "cf27c92b-e31a-43a0-97e9-2f7a7d703d83"
+    }, {
+    test_tag = "test"
   })
 }
 
@@ -73,7 +76,7 @@ resource aws_subnet "eks_subnet1" {
     git_last_modified_at                             = "2021-05-02 11:16:31"
     git_last_modified_by                             = "nimrodkor@gmail.com"
     git_modifiers                                    = "nimrodkor"
-    git_org                                          = "bridgecrewio"
+    git_org                                          = "YaaraVerner"
     git_repo                                         = "terragoat"
     "kubernetes.io/cluster/$${local.eks_name.value}" = "shared"
     yor_trace                                        = "1fb4fa23-a5d6-4d6a-b7dc-88749383f48d"
@@ -89,6 +92,8 @@ resource aws_subnet "eks_subnet1" {
     "kubernetes.io/cluster/$$$${local.eks_name.value}"  = "shared"
     "kubernetes.io/cluster/$$${local.eks_name.value}"   = "shared"
     "kubernetes.io/cluster/$${local.eks_name.value}"    = "shared"
+    }, {
+    test_tag = "test"
   })
 }
 
@@ -106,7 +111,7 @@ resource aws_subnet "eks_subnet2" {
     git_last_modified_at                             = "2021-05-02 11:16:31"
     git_last_modified_by                             = "nimrodkor@gmail.com"
     git_modifiers                                    = "nimrodkor"
-    git_org                                          = "bridgecrewio"
+    git_org                                          = "YaaraVerner"
     git_repo                                         = "terragoat"
     "kubernetes.io/cluster/$${local.eks_name.value}" = "shared"
     yor_trace                                        = "9ce04af2-5321-4e6c-a262-e4d7c1f69525"
@@ -122,6 +127,8 @@ resource aws_subnet "eks_subnet2" {
     "kubernetes.io/cluster/$$$${local.eks_name.value}"  = "shared"
     "kubernetes.io/cluster/$$${local.eks_name.value}"   = "shared"
     "kubernetes.io/cluster/$${local.eks_name.value}"    = "shared"
+    }, {
+    test_tag = "test"
   })
 }
 
@@ -144,9 +151,10 @@ resource aws_eks_cluster "eks_cluster" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "bridgecrewio"
+    git_org              = "YaaraVerner"
     git_repo             = "terragoat"
     yor_trace            = "7fa14261-c18d-4fa2-aec4-746f6e64d2d3"
+    test_tag             = "test"
   }
 }
 
