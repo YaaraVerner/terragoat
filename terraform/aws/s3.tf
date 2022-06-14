@@ -88,6 +88,41 @@ resource "aws_s3_bucket" "operations" {
 
 }
 
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "operations" {
+  bucket = aws_s3_bucket.operations.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
+}
+
+
+
+resource "aws_s3_bucket" "operations_log_bucket" {
+  bucket = "operations-log-bucket"
+}
+
+resource "aws_s3_bucket_logging" "operations" {
+  bucket = aws_s3_bucket.operations.id
+
+  target_bucket = aws_s3_bucket.operations_log_bucket.id
+  target_prefix = "log/"
+}
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "operations" {
+  bucket = aws_s3_bucket.operations.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
 resource "aws_s3_bucket" "data_science" {
   # bucket is not encrypted
   bucket = "${local.resource_prefix.value}-data-science"
