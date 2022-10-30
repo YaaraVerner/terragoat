@@ -14,9 +14,9 @@ resource "azurerm_managed_disk" "example" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "bridgecrewio"
+    git_org              = "try-bridgecrew"
     git_repo             = "terragoat"
-    yor_trace            = "d17da7b3-f1c5-4723-9f77-d1b9069459c7"
+    yor_trace            = "414b46d1-e217-4c9c-a3e1-c41429e81a99"
   }
 }
 
@@ -48,14 +48,53 @@ resource "azurerm_storage_account" "example" {
     }
   }
   tags = {
-    git_commit           = "5c6b5d60a8aa63a5d37e60f15185d13a967f0542"
+    git_commit           = "81738b80d571fa3034633690d13ffb460e1e7dea"
     git_file             = "terraform/azure/storage.tf"
-    git_last_modified_at = "2021-05-02 10:06:10"
-    git_last_modified_by = "nimrodkor@users.noreply.github.com"
+    git_last_modified_at = "2020-06-19 21:14:50"
+    git_last_modified_by = "Adin.Ermie@outlook.com"
     git_modifiers        = "Adin.Ermie/nimrodkor"
-    git_org              = "bridgecrewio"
+    git_org              = "try-bridgecrew"
     git_repo             = "terragoat"
-    yor_trace            = "23861ff4-c42d-495e-80ac-776c74035f43"
+    yor_trace            = "162a7bb2-53c6-41fa-bcf9-d810f493bc2f"
+  }
+}
+
+resource "azurerm_storage_account" "data" {
+  name                     = "tgsa${var.environment}${random_integer.rnd_int.result}"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+  queue_properties {
+    logging {
+      delete                = false
+      read                  = false
+      write                 = true
+      version               = "1.0"
+      retention_policy_days = 10
+    }
+    hour_metrics {
+      enabled               = true
+      include_apis          = true
+      version               = "1.0"
+      retention_policy_days = 10
+    }
+    minute_metrics {
+      enabled               = true
+      include_apis          = true
+      version               = "1.0"
+      retention_policy_days = 10
+    }
+  }
+  tags = {
+    git_commit           = "e2b8c03f7bf3f42e1be4f90498c0023c6d0110e9"
+    git_file             = "terraform/azure/storage.tf"
+    git_last_modified_at = "2020-09-02 23:24:06"
+    git_last_modified_by = "mikeurbanski1@users.noreply.github.com"
+    git_modifiers        = "mikeurbanski1"
+    git_org              = "try-bridgecrew"
+    git_repo             = "terragoat"
+    yor_trace            = "2b9bff69-ac76-45b9-8902-4204052c8695"
   }
 }
 

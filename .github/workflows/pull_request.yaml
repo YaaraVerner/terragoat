@@ -1,16 +1,23 @@
 name: build
+
 on:
-  pull_request
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
 jobs:
   checkov-job:
     runs-on: ubuntu-latest
     name: checkov-action
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - name: actions/checkout@v3
 
       - name: Run Checkov action
         id: checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: terraform/
+        continue-on-error: true
+        uses: bridgecrewio/checkov-action@v12
+
+      - name: Print Result
+        run: |
+          echo "printing result"
+          echo ${{ steps.checkov.outputs.results }}
