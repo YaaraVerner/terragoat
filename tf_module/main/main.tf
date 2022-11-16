@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 module "s3_module" {
-  source = "./module"
+  source = "../module"
 
   bucket = aws_s3_bucket.example.id
 }
 
 module "s3_module2" {
-  source = "./module"
+  source = "../module"
 
   bucket = aws_s3_bucket.example2.id
 }
