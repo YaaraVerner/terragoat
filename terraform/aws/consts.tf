@@ -47,3 +47,13 @@ variable "neptune-dbname" {
   description = "Name of the Neptune graph database"
   default     = "neptunedb1"
 }
+
+variable "availability_zone" {
+  type    = "string"
+  default = "us-west-2a"
+}
+
+variable "availability_zone2" {
+  type    = "string"
+  default = "us-west-2b"
+}
