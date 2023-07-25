@@ -13,4 +13,7 @@ resource "aws_s3_bucket_public_access_block" "var_bucket" {
 resource "aws_s3_bucket" "example3" {
   bucket = "example3"
   acl    = var.acl
+  tags = {
+    git_org = "YaaraVerner"
+  }
 }

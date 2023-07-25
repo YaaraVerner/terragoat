@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = "us-west-2"
+  region = "us-west-2"
 }
 
 module "s3_module" {
@@ -18,4 +18,7 @@ module "s3_module_2" {
 
 resource "aws_s3_bucket" "example" {
   bucket = "example"
+  tags = {
+    git_org = "YaaraVerner"
+  }
 }

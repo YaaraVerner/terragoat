@@ -7,4 +7,7 @@ module "inner_s3_module" {
 resource "aws_s3_bucket" "example2" {
   bucket = "example2"
   acl    = var.acl
+  tags = {
+    git_org = "YaaraVerner"
+  }
 }

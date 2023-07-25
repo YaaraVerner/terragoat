@@ -9,7 +9,9 @@ Resources:
       # versioning is great
       VersioningConfiguration:
         Status: Enabled
-
+      Tags:
+        - Key: git_org
+          Value: YaaraVerner
   S3BucketSpaces:
     Type: 'AWS::S3::Bucket'
     Properties:
@@ -20,7 +22,9 @@ Resources:
 
       VersioningConfiguration:
         Status: Enabled
-
+      Tags:
+        - Key: git_org
+          Value: YaaraVerner
   FlowBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -28,12 +32,16 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub "${AWS::AccountId}-flowlogs"
+        - Key: git_org
+          Value: YaaraVerner
 
   #############
   ###  IAM  ###
   #############
-
   User:
     Type: AWS::IAM::User
     Properties:
       UserName: "user"
+      Tags:
+        - Key: git_org
+          Value: YaaraVerner
